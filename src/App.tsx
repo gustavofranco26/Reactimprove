@@ -10,13 +10,11 @@ function App() {
   return (
     <section>
       <h1>hola mundo</h1>
-      <Counter handleClick={handleClick1}>
-        <span>Hola</span>
-      </Counter>
-      { <Button handleClick={handleClick1}>
+      <Counter />
+      <Button handleClick={handleClick1}>
         <span>Submit</span>
         🥲
-      </Button>}
+      </Button>
     </section>
   );
 }

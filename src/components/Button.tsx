@@ -1,17 +1,16 @@
-interface ButtonProps {
-    cssClass?: string;
-    handleClick?: () => void;
-    children?: React.ReactNode;
-  }
-  
-  //ab
+import React from "react";
 
-  function Button({ children, cssClass = "btn", handleClick }: ButtonProps) {
-    return (
-      <button onClick={handleClick} className={cssClass}>
-        {children}
-      </button>
-    );
-  }
-  
-  export default Button;
+interface ButtonProps {
+  children: React.ReactNode;
+  handleClick: () => void;
+}
+
+const Button: React.FC<ButtonProps> = ({ children, handleClick }) => {
+  return (
+    <button onClick={handleClick}>
+      {children}
+    </button>
+  );
+};
+
+export default Button;
