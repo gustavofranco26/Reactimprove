@@ -24,7 +24,7 @@ function Home() {
   return (
     <main>
       <section className="new-arrivals">
-        <h2 className="prueba">New Arrivals</h2>
+        <h2 className="prueba">THE CLOTHING SALE!</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product: ProductCardProps) => (
             <ProductCard key={product.id} {...product} />
