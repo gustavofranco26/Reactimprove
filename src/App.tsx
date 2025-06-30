@@ -6,6 +6,8 @@ import { auth, googleProvider } from "./firebase/config.ts";
 import { signInWithPopup, signOut, User } from "firebase/auth";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -46,6 +48,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home user={user} />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>
     </section>
   );
