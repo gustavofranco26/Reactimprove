@@ -14,6 +14,7 @@ export function useFetch<T = DocumentData>(
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    console.log("User en useFetch:", user);
     if (!user) return;
 
     const fetchData = async () => {
