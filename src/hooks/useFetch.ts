@@ -5,13 +5,17 @@ import { doc } from "firebase/firestore";
 
 export function useFetch<T = DocumentData>(
   collectionName: string,
-  documentId?: string
+  documentId?: string, 
+  user?: object | null
+
 ) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    if (!user) return;
+
     const fetchData = async () => {
       try {
         if (documentId) {
@@ -46,7 +50,7 @@ export function useFetch<T = DocumentData>(
       }
     };
     fetchData();
-  }, [collectionName, documentId]);
+  }, [collectionName, documentId, user]);
 
   return { data, loading, error };
 }

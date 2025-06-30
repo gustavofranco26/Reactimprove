@@ -1,13 +1,14 @@
 import { useFetch } from "../../hooks/useFetch";
 import { ProductCardProps } from "../../types";
 import ProductCard from "../../components/ProductCard";
+import { User } from "firebase/auth";
 
-function Home() {
+function Home({ user }: { user: User | null }){
   const {
     data: products,
     loading,
     error,
-  } = useFetch<ProductCardProps[]>("products");
+  } = useFetch<ProductCardProps[]>("products", undefined, user);
 
   if (loading) {
     return <div>Cargando...</div>;
